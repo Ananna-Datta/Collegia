@@ -1,5 +1,7 @@
-import { dbConnect } from "../../../utils/db"; // Adjust the path as needed
-import { ObjectId } from "mongodb";
+// import { dbConnect } from "../../../utils/db"; // Adjust the path as needed
+// import { ObjectId } from "mongodb";
+
+import { dbConnect } from "@/src/lib/dbConnect";
 
 // GET request to fetch admission data by email
 export async function GET(req) {

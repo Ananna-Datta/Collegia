@@ -1,9 +1,17 @@
 // app/admission/page.jsx
 import Link from 'next/link';
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export default async function AdmissionPage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/colleges`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/colleges`, {
+    cache: 'no-store'
+  });
+  if (!res.ok) {
+    throw new Error(`Fetch failed: ${res.status}`);
+  }
   const colleges = await res.json();
+
 
   return (
     <div className="max-w-4xl mx-auto p-8">
